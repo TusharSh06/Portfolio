@@ -18,7 +18,10 @@ body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   color: #1f2937;
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #f0f9ff 0%, #fef7ff 25%, #f0fdf4 50%, #fefce8 75%, #fef3c7 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
 .dark body {
@@ -107,4 +110,37 @@ body {
 .dark .light-section-warm,
 .dark .light-section-cool {
   background: #111827;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Ensure no horizontal overflow on mobile */
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Mobile-specific spacing */
+  .mobile-px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Fix for mobile containers */
+  .max-w-7xl {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  /* Ensure proper mobile padding */
+  .px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
 }

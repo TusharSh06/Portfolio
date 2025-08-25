@@ -36,9 +36,9 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-gradient-to-br from-white to-gray-50 dark:from-secondary-900 dark:to-secondary-800">
+      <div className="min-h-screen w-full bg-gradient-to-br from-white to-gray-50 dark:from-secondary-900 dark:to-secondary-800">
         <Navbar />
-        <main>
+        <main className="w-full">
           <Hero />
           <About />
           <Skills />
