@@ -188,10 +188,10 @@ Project Impact:
 This portfolio demonstrates modern web development practices, responsive design principles, and attention to user experience. It serves as both a showcase of skills and a testament to professional development standards.`,
              images: [
          "/images/portfolio.png",
+         "/images/portfolio-1.png",
          "/images/portfolio-2.png",
          "/images/portfolio-3.png",
-         "/images/portfolio-4.png",
-         "/images/portfolio-5.png"
+         "/images/portfolio-4.png"
        ], // Add your portfolio images later (up to 5)
       technologies: [
         "React.js",
