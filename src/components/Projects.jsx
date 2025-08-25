@@ -597,9 +597,9 @@ This project demonstrates real-time communication, file handling, and complex us
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white dark:bg-secondary-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden"
               >
-                {/* Project Image Gallery */}
-                <div className="relative overflow-hidden">
-                  <div className="relative h-48 overflow-hidden">
+                                 {/* Project Image Gallery */}
+                 <div className="relative overflow-hidden">
+                   <div className="relative h-64 overflow-hidden">
                                          <img
                        src={getCurrentImage(project)}
                        alt={project.title}
@@ -847,11 +847,11 @@ This project demonstrates real-time communication, file handling, and complex us
                 <div className="mb-6">
                   {selectedProject.images && selectedProject.images.length > 1 ? (
                     <div className="relative">
-                                             <img
-                         src={getCurrentImage(selectedProject)}
-                         alt={selectedProject.title}
-                         className="w-full h-64 object-cover rounded-lg shadow-lg"
-                       />
+                                                                      <img
+                           src={getCurrentImage(selectedProject)}
+                           alt={selectedProject.title}
+                           className="w-full h-80 object-cover rounded-lg shadow-lg"
+                         />
                       
                       {/* Navigation Arrows */}
                       <button
@@ -887,11 +887,11 @@ This project demonstrates real-time communication, file handling, and complex us
                       </div>
                     </div>
                   ) : (
-                    <img
-                      src={selectedProject.image || selectedProject.images?.[0]}
-                      alt={selectedProject.title}
-                      className="w-full h-64 object-cover rounded-lg shadow-lg"
-                    />
+                                         <img
+                       src={selectedProject.image || selectedProject.images?.[0]}
+                       alt={selectedProject.title}
+                       className="w-full h-80 object-cover rounded-lg shadow-lg"
+                     />
                   )}
                 </div>
 
