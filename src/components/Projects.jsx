@@ -94,6 +94,7 @@ Project Impact:
 This project demonstrates full-stack development capabilities, database design, API development, and modern web technologies. It showcases real-world problem-solving skills and attention to user experience.`,
              images: [
          "/images/triplane.png",
+         "/images/triplane-1.png",
          "/images/triplane-2.png",
          "/images/triplane-3.png",
          "/images/triplane-4.png",
@@ -142,10 +143,10 @@ Project Impact:
 This project showcases event management system design, calendar integration, responsive UI development, and full-stack application architecture. It demonstrates the ability to create user-friendly platforms for real-world use cases.`,
              images: [
          "/images/techgather.png",
+         "/images/techgather-1.png",
          "/images/techgather-2.png",
          "/images/techgather-3.png",
-         "/images/techgather-4.png",
-         "/images/techgather-5.png"
+         "/images/techgather-4.png"
        ],
       technologies: [
         "React.js",
