@@ -42,7 +42,7 @@ Technical Highlights:
 • Real-time Features: Live notifications and order status updates
 • Mobile Optimization: Progressive web app features for street-shopping experience
 
-**Project Impact:**
+Project Impact:
 This project demonstrates advanced full-stack development capabilities, AI integration, complex multi-tenant architecture, and real-world problem-solving. It showcases the ability to build scalable e-commerce solutions that benefit both businesses and consumers while addressing local market needs.`,
              images: [
          "/images/expresskart.png",
@@ -90,7 +90,7 @@ Technical Highlights:
 • File Upload: Multer middleware for image handling
 • Deployment: Vercel (Frontend) + Render (Backend)
 
-**Project Impact:**
+Project Impact:
 This project demonstrates full-stack development capabilities, database design, API development, and modern web technologies. It showcases real-world problem-solving skills and attention to user experience.`,
              images: [
          "/images/triplane.png",
@@ -122,7 +122,7 @@ This project demonstrates full-stack development capabilities, database design, 
         "A full-stack event management platform enabling users to create, join, and manage events with calendar visualization. Features responsive UI with dark/light mode and comprehensive event management. Deployed on Vercel and Render.",
       detailedDescription: `TechGather is a comprehensive event management platform designed to streamline the process of organizing and participating in tech events, meetups, and conferences. This full-stack application provides an intuitive interface for event creators and attendees alike.
 
-**Key Features:**
+Key Features:
 • Event Creation & Management: Create detailed events with descriptions, dates, locations, and capacity limits
 • Calendar Integration: FullCalendar.js integration for intuitive date selection and event visualization
 • User Authentication: Secure user registration and login system with profile management
@@ -130,7 +130,7 @@ This project demonstrates full-stack development capabilities, database design, 
 • Responsive Design: Dark/light mode toggle with mobile-first responsive design
 • Real-time Updates: Live updates for event changes and registrations
 
-**Technical Highlights:**
+Technical Highlights:
 • Frontend: React.js with Tailwind CSS for modern, responsive UI
 • Backend: Node.js with Express.js REST API
 • Database: MongoDB with Mongoose for flexible data modeling
@@ -138,7 +138,7 @@ This project demonstrates full-stack development capabilities, database design, 
 • Styling: Tailwind CSS with custom dark/light theme system
 • Deployment: Vercel (Frontend) + Render (Backend)
 
-**Project Impact:**
+Project Impact:
 This project showcases event management system design, calendar integration, responsive UI development, and full-stack application architecture. It demonstrates the ability to create user-friendly platforms for real-world use cases.`,
              images: [
          "/images/techgather.png",
@@ -168,7 +168,7 @@ This project showcases event management system design, calendar integration, res
         "A modern, responsive portfolio website built with React and Tailwind CSS. Features smooth animations, dark/light mode, mobile-first design, and comprehensive sections for showcasing skills, projects, and experience.",
       detailedDescription: `This portfolio website represents a modern, professional showcase of my skills and projects. Built with cutting-edge web technologies, it demonstrates proficiency in frontend development, responsive design, and user experience optimization.
 
-**Key Features:**
+Key Features:
 • Responsive Design: Mobile-first approach ensuring perfect experience across all devices
 • Dark/Light Mode: Dynamic theme switching with smooth transitions and persistent preferences
 • Smooth Animations: Framer Motion integration for engaging, performant animations
@@ -176,7 +176,7 @@ This project showcases event management system design, calendar integration, res
 • Interactive Elements: Smooth scrolling, hover effects, and engaging user interactions
 • Performance Optimized: Optimized for fast loading and smooth user experience
 
-**Technical Highlights:**
+Technical Highlights:
 • Frontend: React.js with modern hooks and functional components
 • Styling: Tailwind CSS for utility-first, responsive design
 • Animations: Framer Motion for smooth, performant animations
@@ -184,7 +184,7 @@ This project showcases event management system design, calendar integration, res
 • Responsive: Mobile-first design with breakpoint optimization
 • Performance: Optimized transitions and animations
 
-**Project Impact:**
+Project Impact:
 This portfolio demonstrates modern web development practices, responsive design principles, and attention to user experience. It serves as both a showcase of skills and a testament to professional development standards.`,
              images: [
          "/images/portfolio.png",
@@ -202,7 +202,7 @@ This portfolio demonstrates modern web development practices, responsive design 
       ],
       category: "frontend",
       github: "https://github.com/TusharSh06/portfolio", // Update with your actual repo
-      live: "https://your-portfolio.vercel.app/", // Update with your actual live URL
+      live: "https://tushar06.vercel.app/", // Update with your actual live URL
       featured: false,
     },
   ];
