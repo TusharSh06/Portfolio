@@ -134,11 +134,6 @@ The website includes a built-in dark/light mode toggle that:
 2. Connect your repository to Vercel
 3. Deploy automatically on every push
 
-### Netlify
-1. Build your project: `npm run build`
-2. Upload the `dist` folder to Netlify
-3. Configure custom domain if needed
-
 ### GitHub Pages
 1. Build your project: `npm run build`
 2. Push the `dist` folder to the `gh-pages` branch
