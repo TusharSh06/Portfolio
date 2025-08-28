@@ -13,16 +13,16 @@ const Certificates = () => {
   const certificates = [
     {
       id: 1,
-      title: 'Bootcamp',
+      title: 'Full Stack Bootcamp & Internship (IPRP 2.0)',
       issuer: 'K.R. Mangalam University',
-      date: '2023',
+      date: '2025',
       category: 'course',
       duration: '40 Days',
       description: 'Comprehensive bootcamp covering full-stack development technologies and best practices.',
       image: '/api/placeholder/300/200',
-      url: null,
+      url: 'https://drive.google.com/file/d/1QOpzEVIcHZNm0w_kXGDRAdi8TIi_tlD0/view',
       featured: true,
-      skills: ['Full Stack', 'MERN', 'Web Development']
+      skills: ['Full Stack', 'MERN', 'RESTful APIs', 'User Authencation','Web Development']
     },
     {
       id: 2,
@@ -33,10 +33,10 @@ const Certificates = () => {
       duration: '1 Week',
       description: 'Specialized bootcamp on drone technology and its applications in modern technology.',
       image: '/api/placeholder/300/200',
-      url: null,
-      featured: true,
+      url: "https://drive.google.com/file/d/19GA1i7_mMcNvhc7aP4qH9HJiyTcQ8WgE/view",
+      featured: false,
       skills: ['Drone Technology', 'Innovation', 'Technology']
-    }
+    },
   ]
 
   // ===== DUMMY CERTIFICATES FOR FUTURE USE =====
