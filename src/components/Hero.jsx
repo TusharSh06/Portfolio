@@ -57,7 +57,7 @@ const Hero = () => {
                                     className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start"
              >
                              <motion.a
-                 href="https://drive.google.com/file/d/1hxZIuwYkwpy3dIApvCFoyIBQ8FJLw5Tw/view"
+                 href="https://drive.google.com/file/d/1UrgfJu-gvW0RR4X8T9HlzeoDGY-fyF5E/view"
                  target="_blank"
                  rel="noopener noreferrer"
                  whileHover={{ scale: 1.05 }}
