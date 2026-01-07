@@ -11,6 +11,19 @@ const Certificates = () => {
   })
 
   const certificates = [
+     {
+      id: 3,
+      title: 'Project Completion Certificate',
+      issuer: 'Projexa AI , K.R. Mangalam University',
+      date: '2025',
+      category: 'certification',
+      duration: '6 Months',
+      description: 'Successfully completed the ExpressKart full-stack e-commerce project using the Projexa AI platform, implementing user, vendor, and admin workflows with the MERN stack.',
+      image: ["/images/projexa.jpg",],
+      url: 'https://drive.google.com/file/d/1hyz5WhXCfF7Zb6EE_EGbU7Gp4D3O8qjo/view',
+      featured: true,
+      skills: ['MERN', 'Frontend Development', 'Web Development']
+    },
     {
       id: 1,
       title: 'Full Stack Bootcamp & Internship (IPRP 2.0)',
@@ -19,9 +32,9 @@ const Certificates = () => {
       category: 'course',
       duration: '40 Days',
       description: 'Comprehensive bootcamp covering full-stack development technologies and best practices.',
-      image: '/api/placeholder/300/200',
+      image: ["/images/mern.jpg",],
       url: 'https://drive.google.com/file/d/1QOpzEVIcHZNm0w_kXGDRAdi8TIi_tlD0/view',
-      featured: true,
+      featured: false,
       skills: ['Full Stack', 'MERN', 'RESTful APIs', 'User Authencation','Web Development']
     },
     {
@@ -32,7 +45,7 @@ const Certificates = () => {
       category: 'course',
       duration: '1 Week',
       description: 'Specialized bootcamp on drone technology and its applications in modern technology.',
-      image: '/api/placeholder/300/200',
+      image: ["/images/drone.jpg",],
       url: "https://drive.google.com/file/d/19GA1i7_mMcNvhc7aP4qH9HJiyTcQ8WgE/view",
       featured: false,
       skills: ['Drone Technology', 'Innovation', 'Technology']

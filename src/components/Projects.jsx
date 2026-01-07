@@ -17,15 +17,15 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "ExpressKart – Hyperlocal E-Commerce Platform",
+      title: "ExpressKart – Full Stack E-Commerce Platform",
       subtitle: "Local Vendors & Street Shopping Experience",
       description:
-        "A full-stack hyperlocal e-commerce platform using the MERN stack with separate vendor, user, and admin portals. Features AI-driven personalization, secure payment gateway, order tracking, and comprehensive admin dashboard.",
-      detailedDescription: `ExpressKart is a revolutionary hyperlocal e-commerce platform designed to bring local kirana stores, artisans, and small businesses online. This comprehensive application provides a seamless street-shopping experience while empowering local vendors with digital tools and reducing operational costs.
+        "A MERN stack–based e-commerce platform designed to bring local businesses online. Features separate user, vendor, and admin portals with secure authentication, product and order management, and a responsive, performance-optimized UI.",
+      detailedDescription: `ExpressKart is a revolutionary e-commerce platform designed to bring local kirana stores, artisans, and small businesses online. This comprehensive application provides a seamless street-shopping experience while empowering local vendors with digital tools and reducing operational costs.
 
 Key Features:
 • Multi-Portal System: Separate interfaces for vendors, users, and administrators with role-based access control
-• Vendor Management: Complete vendor registration, product catalog, and inventory management system
+• Vendor Management: Complete vendor registration, product catalog, and inventory management system 
 • AI-Powered Personalization: Nearby vendor discovery, product recommendations, and consumer behavior analysis
 • Payment & Security: Secure payment gateway integration with order tracking and notifications
 • User Experience: Wishlist functionality, reviews, ratings, and mobile-first responsive design
@@ -49,7 +49,9 @@ This project demonstrates advanced full-stack development capabilities, AI integ
          "/images/expresskart-2.png",
          "/images/expresskart-3.png",
          "/images/expresskart-4.png",
-         "/images/expresskart-5.png"
+         "/images/expresskart-5.png",
+         "/images/expresskart-6.png"
+
        ], // Add your ExpressKart images (up to 5)
       technologies: [
         "React.js",
@@ -57,9 +59,9 @@ This project demonstrates advanced full-stack development capabilities, AI integ
         "Express.js",
         "MongoDB",
         "JWT",
-        "AI/ML",
-        "Payment Gateway",
-        "Real-time Updates",
+        // "AI/ML",
+        // "Payment Gateway",
+        // "Real-time Updates",
       ],
       category: "fullstack",
       github: "https://github.com/TusharSh06/ExpressKart", // Update with your actual repo

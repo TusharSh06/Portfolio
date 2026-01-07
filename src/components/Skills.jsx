@@ -44,7 +44,7 @@ const Skills = () => {
       icon: FiCode,
       skills: [
         { name: 'C++' },
-        { name: 'Python' },
+        // { name: 'Python' },
         { name: 'SQL' }
       ]
     },

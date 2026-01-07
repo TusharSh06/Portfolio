@@ -196,16 +196,16 @@ const Contact = () => {
               <div className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
                 <div className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-primary-600 rounded-full"></span>
-                  <span>500+ commits on GitHub</span>
+                  <span>50+ commits on GitHub</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-primary-600 rounded-full"></span>
-                  <span>25+ projects completed</span>
+                  <span>5+ projects completed</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                {/* <div className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-primary-600 rounded-full"></span>
                   <span>100% client satisfaction</span>
-                </div>
+                </div> */}
                 <div className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-primary-600 rounded-full"></span>
                   <span>Always learning new tech</span>
