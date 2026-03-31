@@ -254,7 +254,7 @@ const Hero = () => {
               <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden gradient-border group">
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-transparent z-10" />
                 <img 
-                  src="/images/profile2.jpeg" 
+                  src="/images/profile2.png" 
                   alt="Tushar Sharma - Full Stack Developer"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
                 />
