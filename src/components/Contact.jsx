@@ -86,8 +86,34 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 light-section-secondary dark:bg-secondary-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-dark-bg relative overflow-hidden">
+      {/* Animated Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
+      
+      {/* Gradient Orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 right-20 w-80 h-80 bg-accent-purple/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" />
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent-blue/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 right-1/2 w-72 h-72 bg-accent-cyan/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" style={{ animationDelay: '4s' }} />
+      </div>
+      
+      {/* Floating Communication Icons */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-16 left-12 text-accent-blue opacity-20 animate-float" style={{ animationDelay: '0s' }}>
+          <FiMail className="w-8 h-8" />
+        </div>
+        <div className="absolute top-1/3 right-16 text-accent-purple opacity-20 animate-float" style={{ animationDelay: '1.5s' }}>
+          <FiPhone className="w-8 h-8" />
+        </div>
+        <div className="absolute bottom-24 left-1/3 text-accent-cyan opacity-20 animate-float" style={{ animationDelay: '3s' }}>
+          <FiMapPin className="w-8 h-8" />
+        </div>
+        <div className="absolute bottom-1/3 right-1/4 text-accent-pink opacity-20 animate-float" style={{ animationDelay: '2s' }}>
+          <FiSend className="w-8 h-8" />
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,12 +121,12 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Get In Touch
+          <p className="text-accent-cyan font-mono text-sm tracking-wider mb-4">Let's Talk</p>
+          <h2 className="text-4xl md:text-5xl font-bold font-display text-white mb-4 tracking-tight">
+            Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            I'm always interested in new learning opportunities, exciting projects, and connecting with fellow developers. 
-            Let's discuss how we can collaborate or learn together!
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            I'm always interested in new opportunities and connecting with fellow developers
           </p>
         </motion.div>
 
@@ -114,13 +140,12 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                Let's Connect
+              <h3 className="text-2xl font-bold text-white mb-6">
+                Let's <span className="gradient-text">Connect</span>
               </h3>
-              <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+              <p className="text-lg text-gray-400 leading-relaxed mb-8">
                 Whether you have a project in mind, want to discuss potential opportunities, 
-                or just want to say hello, I'd love to hear from you. 
-                I'm always open to new challenges and exciting collaborations.
+                or just want to say hello, I'd love to hear from you.
               </p>
             </div>
 
@@ -133,24 +158,24 @@ const Contact = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-secondary-800 rounded-lg hover:bg-gray-100 dark:hover:bg-secondary-700 transition-colors duration-200"
+                  className="flex items-center space-x-4 p-4 modern-card group"
                 >
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center text-primary-600 dark:text-primary-400">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-accent-cyan glass group-hover:glow-blue transition-all">
                     <info.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">
+                    <h4 className="font-semibold text-white">
                       {info.title}
                     </h4>
                     {info.href ? (
                       <a
                         href={info.href}
-                        className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors duration-200"
+                        className="text-accent-cyan hover:text-white transition-colors duration-200"
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-gray-400">
                         {info.value}
                       </p>
                     )}
@@ -161,7 +186,7 @@ const Contact = () => {
 
             {/* Social Links */}
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              <h4 className="text-lg font-semibold text-white mb-4">
                 Follow Me
               </h4>
               <div className="flex space-x-4">
@@ -173,7 +198,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -5 }}
                     whileTap={{ scale: 0.9 }}
-                    className={`w-12 h-12 bg-gray-100 dark:bg-secondary-700 rounded-lg flex items-center justify-center text-gray-700 dark:text-gray-300 transition-all duration-200 ${social.color}`}
+                    className="w-12 h-12 glass rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:glow-blue transition-all duration-200"
                     aria-label={social.label}
                   >
                     <social.icon className="w-6 h-6" />
@@ -188,26 +213,22 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-primary-50 to-purple-50 dark:from-primary-900/30 dark:to-purple-900/30 rounded-xl p-6"
+              className="glass rounded-xl p-6"
             >
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              <h4 className="text-lg font-semibold text-white mb-4">
                 Fun Facts
               </h4>
-              <div className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+              <div className="space-y-3 text-sm text-gray-400">
                 <div className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-primary-600 rounded-full"></span>
-                  <span>50+ commits on GitHub</span>
+                  <span className="w-2 h-2 bg-accent-cyan rounded-full"></span>
+                  <span>100+ commits on GitHub</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-primary-600 rounded-full"></span>
-                  <span>5+ projects completed</span>
+                  <span className="w-2 h-2 bg-accent-purple rounded-full"></span>
+                  <span>10+ projects completed</span>
                 </div>
-                {/* <div className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-primary-600 rounded-full"></span>
-                  <span>100% client satisfaction</span>
-                </div> */}
                 <div className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-primary-600 rounded-full"></span>
+                  <span className="w-2 h-2 bg-accent-blue rounded-full"></span>
                   <span>Always learning new tech</span>
                 </div>
               </div>
@@ -221,15 +242,15 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white dark:bg-secondary-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-secondary-700">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                Send Me a Message
+            <div className="modern-card p-8">
+              <h3 className="text-2xl font-bold text-white mb-6">
+                Send Me a <span className="gradient-text">Message</span>
               </h3>
               
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="user_name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label htmlFor="user_name" className="block text-sm font-medium text-gray-300 mb-2">
                       Name *
                     </label>
                     <input
@@ -239,12 +260,12 @@ const Contact = () => {
                                              value={formData.user_name}
                        onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-secondary-600 rounded-lg bg-white dark:bg-secondary-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 glass rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-blue/50 transition-all duration-200"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="user_email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label htmlFor="user_email" className="block text-sm font-medium text-gray-300 mb-2">
                       Email *
                     </label>
                     <input
@@ -254,14 +275,14 @@ const Contact = () => {
                                              value={formData.user_email}
                        onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-secondary-600 rounded-lg bg-white dark:bg-secondary-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 glass rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-blue/50 transition-all duration-200"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
                     Subject *
                   </label>
                   <input
@@ -271,13 +292,13 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-secondary-600 rounded-lg bg-white dark:bg-secondary-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 glass rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-blue/50 transition-all duration-200"
                     placeholder="What's this about?"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                     Message *
                   </label>
                   <textarea
@@ -287,7 +308,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-secondary-600 rounded-lg bg-white dark:bg-secondary-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 glass rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-blue/50 transition-all duration-200 resize-none"
                     placeholder="Tell me about your project or opportunity..."
                   ></textarea>
                 </div>
@@ -297,10 +318,10 @@ const Contact = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className={`flex items-center space-x-2 p-4 rounded-lg ${
+                    className={`flex items-center space-x-2 p-4 rounded-xl ${
                       submitStatus === 'success'
-                        ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400'
-                        : 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400'
+                        ? 'glass bg-green-500/20 text-green-400'
+                        : 'glass bg-red-500/20 text-red-400'
                     }`}
                   >
                     {submitStatus === 'success' ? (
@@ -321,7 +342,7 @@ const Contact = () => {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-accent-blue to-accent-purple text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-accent-blue/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
                 >
                   {isSubmitting ? (
                     <>
@@ -348,24 +369,24 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mt-20"
         >
-          <div className="bg-gradient-to-r from-primary-50 to-purple-50 dark:from-primary-900/30 dark:to-purple-900/30 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Ready to Start a Project?
+          <div className="glass rounded-2xl p-8">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Ready to Start a <span className="gradient-text">Project</span>?
             </h3>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-400 mb-6 max-w-2xl mx-auto">
               I'm excited to hear about your ideas and help bring them to life. 
               Let's create something amazing together!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="#projects"
-                className="px-8 py-3 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+                className="px-8 py-3 bg-gradient-to-r from-accent-blue to-accent-purple text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-accent-blue/25 transition-all duration-200"
               >
                 View My Work
               </a>
                              <a
                  href="mailto:tsharmak10@gmail.com"
-                 className="px-8 py-3 border-2 border-primary-600 text-primary-600 dark:text-primary-400 rounded-lg font-semibold hover:bg-primary-600 hover:text-white transition-all duration-200"
+                 className="px-8 py-3 border border-gray-600 text-gray-300 rounded-xl font-semibold hover:border-accent-cyan hover:text-accent-cyan transition-all duration-200"
                >
                  Email Me Directly
                </a>

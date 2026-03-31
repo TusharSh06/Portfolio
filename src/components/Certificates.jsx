@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiAward, FiExternalLink, FiCalendar, FiClock } from 'react-icons/fi'
+import LazyImage from './LazyImage'
 
 const Certificates = () => {
   const [activeCategory, setActiveCategory] = useState('all')
@@ -202,8 +203,34 @@ const Certificates = () => {
   }
 
   return (
-    <section id="certificates" className="py-20 light-section-primary dark:bg-secondary-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="certificates" className="py-20 bg-dark-bg relative overflow-hidden">
+      {/* Animated Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
+      
+      {/* Gradient Orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-80 h-80 bg-accent-cyan/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent-purple/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-accent-blue/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" style={{ animationDelay: '4s' }} />
+      </div>
+      
+      {/* Floating Badge Icons */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 right-16 text-accent-cyan opacity-20 animate-float" style={{ animationDelay: '0s' }}>
+          <FiAward className="w-8 h-8" />
+        </div>
+        <div className="absolute top-1/3 left-20 text-accent-purple opacity-20 animate-float" style={{ animationDelay: '2s' }}>
+          <FiAward className="w-8 h-8" />
+        </div>
+        <div className="absolute bottom-32 right-1/3 text-accent-blue opacity-20 animate-float" style={{ animationDelay: '1s' }}>
+          <FiAward className="w-8 h-8" />
+        </div>
+        <div className="absolute bottom-20 left-1/4 text-accent-pink opacity-20 animate-float" style={{ animationDelay: '3s' }}>
+          <FiAward className="w-8 h-8" />
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -211,11 +238,12 @@ const Certificates = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Certificates & Achievements
+          <p className="text-accent-cyan font-mono text-sm tracking-wider mb-4">Recognition</p>
+          <h2 className="text-4xl md:text-5xl font-bold font-display text-white mb-4 tracking-tight">
+            Certificates & <span className="gradient-text">Achievements</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Recognition of my continuous learning journey and accomplishments in various fields
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Recognition of my continuous learning journey and accomplishments
           </p>
         </motion.div>
 
@@ -233,14 +261,14 @@ const Certificates = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+              className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
                 activeCategory === category.id
-                  ? 'bg-primary-600 text-white shadow-lg'
-                  : 'bg-gray-100 dark:bg-secondary-700 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20'
+                  ? 'bg-gradient-to-r from-accent-blue to-accent-purple text-white shadow-lg shadow-accent-blue/25'
+                  : 'glass text-gray-300 hover:text-white'
               }`}
             >
               {category.label}
-              <span className="ml-2 px-2 py-1 bg-white/20 dark:bg-black/20 rounded-full text-xs">
+              <span className="ml-2 px-2 py-0.5 bg-white/10 rounded-full text-xs">
                 {category.count}
               </span>
             </motion.button>
@@ -266,21 +294,21 @@ const Certificates = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`bg-white dark:bg-secondary-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden ${
-                  cert.featured ? 'ring-2 ring-primary-500' : ''
+                className={`modern-card overflow-hidden ${
+                  cert.featured ? 'ring-2 ring-accent-cyan/50' : ''
                 }`}
               >
                 {/* Certificate Header */}
                 <div className="relative">
                   {/* Certificate Image or Placeholder */}
                   {getCertificateImage(cert) ? (
-                    <div className="w-full h-28 overflow-hidden">
-                      <img 
+                    <div className="w-full h-28 overflow-hidden bg-gray-900">
+                      <LazyImage 
                         src={getCertificateImage(cert)} 
                         alt={`${cert.title} Certificate`}
                         className="w-full h-full object-cover"
+                        containerClassName="w-full h-full"
                         onError={(e) => {
-                          // If image fails to load, remove it and show placeholder
                           e.target.style.display = 'none';
                           updateCertificateImage(cert.id, null);
                         }}
@@ -343,27 +371,27 @@ const Certificates = () => {
                 {/* Certificate Content */}
                 <div className="p-4">
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight">
+                    <h3 className="text-lg font-bold text-white leading-tight">
                       {cert.title}
                     </h3>
                   </div>
                   
                   <div className="space-y-2 mb-3">
-                    <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
+                    <div className="flex items-center space-x-2 text-gray-400">
                       <FiAward className="w-3 h-3" />
                       <span className="font-medium text-sm">{cert.issuer}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
+                    <div className="flex items-center space-x-2 text-gray-400">
                       <FiCalendar className="w-3 h-3" />
                       <span className="text-sm">{cert.date}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
+                    <div className="flex items-center space-x-2 text-gray-400">
                       <FiClock className="w-3 h-3" />
                       <span className="text-sm">{cert.duration}</span>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-400 mb-3 text-sm leading-relaxed">
+                  <p className="text-gray-400 mb-3 text-sm leading-relaxed">
                     {cert.description}
                   </p>
 
@@ -372,7 +400,7 @@ const Certificates = () => {
                     {cert.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="px-2 py-0.5 bg-gray-100 dark:bg-secondary-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium"
+                        className="px-2 py-0.5 glass text-accent-cyan rounded-full text-xs font-medium"
                       >
                         {skill}
                       </span>
@@ -385,7 +413,7 @@ const Certificates = () => {
                       href={cert.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors duration-200 text-sm"
+                      className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-accent-blue to-accent-purple text-white rounded-lg font-medium hover:shadow-lg hover:shadow-accent-blue/25 transition-all duration-200 text-sm"
                     >
                       <FiExternalLink className="w-4 h-4" />
                       View Certificate
@@ -405,40 +433,40 @@ const Certificates = () => {
           viewport={{ once: true }}
           className="mt-20"
         >
-          <div className="bg-gradient-to-r from-primary-50 to-purple-50 dark:from-primary-900/30 dark:to-purple-900/30 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">
-              Learning Journey Highlights
+          <div className="glass rounded-2xl p-8">
+            <h3 className="text-2xl font-bold text-white text-center mb-8">
+              <span className="gradient-text">Learning</span> Highlights
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                <div className="text-4xl font-bold gradient-text mb-2">
                   {certificates.length}
                 </div>
-                <div className="text-gray-600 dark:text-gray-400 font-medium">
+                <div className="text-gray-400 font-medium text-sm">
                   Total Achievements
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                <div className="text-4xl font-bold gradient-text mb-2">
                   {certificates.filter(c => c.category === 'course').length}
                 </div>
-                <div className="text-gray-600 dark:text-gray-400 font-medium">
+                <div className="text-gray-400 font-medium text-sm">
                   Courses Completed
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                <div className="text-4xl font-bold gradient-text mb-2">
                   {certificates.filter(c => c.category === 'certification').length}
                 </div>
-                <div className="text-gray-600 dark:text-gray-400 font-medium">
+                <div className="text-gray-400 font-medium text-sm">
                   Certifications
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                <div className="text-4xl font-bold gradient-text mb-2">
                   {certificates.filter(c => c.featured).length}
                 </div>
-                <div className="text-gray-600 dark:text-gray-400 font-medium">
+                <div className="text-gray-400 font-medium text-sm">
                   Featured Achievements
                 </div>
               </div>
@@ -454,18 +482,17 @@ const Certificates = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <div className="bg-white dark:bg-secondary-700 rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Never Stop Learning
+          <div className="glass rounded-2xl p-8">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Never Stop <span className="gradient-text">Learning</span>
             </h3>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-              I believe in continuous improvement and staying current with industry trends. 
-              Currently pursuing advanced certifications in cloud architecture and machine learning.
+            <p className="text-lg text-gray-400 mb-6 max-w-2xl mx-auto">
+              I believe in continuous improvement and staying current with industry trends.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="#contact"
-                className="px-8 py-3 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+                className="px-8 py-3 bg-gradient-to-r from-accent-blue to-accent-purple text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-accent-blue/25 transition-all duration-200"
               >
                 Discuss Opportunities
               </a>
@@ -473,7 +500,7 @@ const Certificates = () => {
                  href="https://github.com/TusharSh06"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="px-8 py-3 border-2 border-primary-600 text-primary-600 dark:text-primary-400 rounded-lg font-semibold hover:bg-primary-600 hover:text-white transition-all duration-200"
+                 className="px-8 py-3 border border-gray-600 text-gray-300 rounded-xl font-semibold hover:border-accent-cyan hover:text-accent-cyan transition-all duration-200"
                >
                  View GitHub
                </a>

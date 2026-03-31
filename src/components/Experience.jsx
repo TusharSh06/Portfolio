@@ -146,15 +146,33 @@ const Experience = () => {
   // - Modify achievements to reflect your work
 
   const stats = [
-    { label: 'Projects Built', value: '2+' },        // CHANGE TO: '5+' when adding dummy experiences
-    { label: 'Technologies Learned', value: '10+' }, // CHANGE TO: '25+' when adding dummy experiences
-    { label: 'Bootcamps Completed', value: '2' },   // CHANGE TO: '5+' when adding dummy experiences
-    { label: 'Always Learning', value: '100%' }     // KEEP AS: '100%'
+    { label: 'Projects Built', value: '10+' },        
+    { label: 'Technologies Learned', value: '15+' }, 
+    { label: 'Bootcamps Completed', value: '5+' },   
+    { label: 'Always Learning', value: '100%' }     
   ]
 
   return (
-    <section id="experience" className="py-20 light-section-cool dark:bg-secondary-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-20 bg-dark-bg relative overflow-hidden">
+      {/* Animated Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
+      
+      {/* Gradient Orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-10 right-10 w-80 h-80 bg-accent-blue/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-accent-purple/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-accent-cyan/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" style={{ animationDelay: '4s' }} />
+      </div>
+      
+      {/* Floating Timeline Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-24 left-1/4 w-3 h-3 bg-accent-blue rounded-full animate-pulse" />
+        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-accent-purple rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-32 left-1/2 w-3 h-3 bg-accent-cyan rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/3 left-16 w-2 h-2 bg-accent-pink rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -162,11 +180,12 @@ const Experience = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Experience & Learning Journey
+          <p className="text-accent-cyan font-mono text-sm tracking-wider mb-4">My Journey</p>
+          <h2 className="text-4xl md:text-5xl font-bold font-display text-white mb-4 tracking-tight">
+            Experience & <span className="gradient-text">Learning</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            My learning journey, projects built, and the skills I'm developing as a student developer
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            My learning journey, projects built, and skills I'm developing
           </p>
         </motion.div>
 
@@ -180,12 +199,12 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`relative ${
-                experience.featured ? 'bg-white dark:bg-secondary-700 shadow-xl rounded-2xl p-8' : 'bg-white dark:bg-secondary-700 rounded-xl p-6 shadow-lg'
+              className={`relative modern-card ${
+                experience.featured ? 'p-8' : 'p-6'
               }`}
             >
               {experience.featured && (
-                <div className="absolute -top-3 left-8 bg-primary-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                <div className="absolute -top-3 left-8 bg-gradient-to-r from-accent-blue to-accent-purple text-white px-4 py-1 rounded-full text-sm font-medium">
                   Current Focus
                 </div>
               )}
@@ -197,45 +216,45 @@ const Experience = () => {
                     <div className="flex-shrink-0">
                       <div className={`w-16 h-16 rounded-xl flex items-center justify-center text-white text-2xl font-bold ${
                         experience.featured 
-                          ? 'bg-gradient-to-br from-primary-500 to-purple-600' 
-                          : 'bg-gradient-to-br from-gray-500 to-gray-600'
+                          ? 'bg-gradient-to-br from-accent-blue to-accent-purple' 
+                          : 'glass'
                       }`}>
                         {experience.company.split(' ').map(word => word[0]).join('').slice(0, 2)}
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                      <h3 className="text-xl font-bold text-white mb-2">
                         {experience.title}
                       </h3>
                       <div className="space-y-2">
-                        <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
+                        <div className="flex items-center space-x-2 text-gray-400">
                           <FiBriefcase className="w-4 h-4" />
-                          <span className="font-medium">{experience.company}</span>
+                          <span className="font-medium text-white">{experience.company}</span>
                           {experience.companyUrl && (
                             <a
                               href={experience.companyUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300"
+                              className="text-accent-cyan hover:text-accent-blue"
                             >
                               <FiExternalLink className="w-4 h-4" />
                             </a>
                           )}
                         </div>
-                        <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
+                        <div className="flex items-center space-x-2 text-gray-400">
                           <FiMapPin className="w-4 h-4" />
                           <span>{experience.location}</span>
                         </div>
-                        <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
+                        <div className="flex items-center space-x-2 text-gray-400">
                           <FiCalendar className="w-4 h-4" />
                           <span>{experience.period}</span>
                         </div>
                         <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
                           experience.type === 'Full-time' 
-                            ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
+                            ? 'bg-green-500/20 text-green-400'
                             : experience.type === 'Internship'
-                            ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400'
-                            : 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400'
+                            ? 'bg-accent-blue/20 text-accent-blue'
+                            : 'bg-accent-purple/20 text-accent-purple'
                         }`}>
                           {experience.type}
                         </span>
@@ -246,17 +265,17 @@ const Experience = () => {
 
                 {/* Right side - Description and achievements */}
                 <div className="lg:col-span-2">
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                  <p className="text-gray-400 mb-4 leading-relaxed">
                     {experience.description}
                   </p>
                   
                   <div className="mb-4">
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Key Achievements:</h4>
+                    <h4 className="font-semibold text-white mb-3">Key Achievements:</h4>
                     <ul className="space-y-2">
                       {experience.achievements.map((achievement, achievementIndex) => (
-                        <li key={achievementIndex} className="flex items-start space-x-2">
-                          <div className="w-2 h-2 bg-primary-600 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-gray-600 dark:text-gray-400 text-sm">
+                        <li key={achievementIndex} className="flex items-start space-x-2 group">
+                          <div className="w-2 h-2 bg-accent-cyan rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform" />
+                          <span className="text-gray-400 text-sm">
                             {achievement}
                           </span>
                         </li>
@@ -268,7 +287,7 @@ const Experience = () => {
                     {experience.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-gray-100 dark:bg-secondary-600 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium"
+                        className="px-3 py-1 glass text-accent-cyan rounded-full text-xs font-medium"
                       >
                         {tech}
                       </span>
@@ -288,9 +307,9 @@ const Experience = () => {
           viewport={{ once: true }}
           className="mt-20"
         >
-          <div className="bg-gradient-to-r from-primary-50 to-purple-50 dark:from-primary-900/30 dark:to-purple-900/30 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">
-              Experience Highlights
+          <div className="glass rounded-2xl p-8">
+            <h3 className="text-2xl font-bold font-display text-white text-center mb-8">
+              <span className="gradient-text">Highlights</span>
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
@@ -302,10 +321,10 @@ const Experience = () => {
                   viewport={{ once: true }}
                   className="text-center"
                 >
-                  <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                  <div className="text-4xl font-bold gradient-text mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-gray-600 dark:text-gray-400 font-medium">
+                  <div className="text-gray-400 font-medium text-sm">
                     {stat.label}
                   </div>
                 </motion.div>

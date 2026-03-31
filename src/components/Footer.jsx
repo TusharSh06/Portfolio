@@ -48,10 +48,10 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-secondary-900 dark:bg-gray-900 text-white relative overflow-hidden">
+    <footer className="bg-dark-bg border-t border-white/10 text-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-400 via-purple-400 to-blue-400"></div>
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-cyan/10" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -66,16 +66,15 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold text-primary-400 mb-4">
+              <h3 className="text-2xl font-bold gradient-text mb-4">
                 Tushar Sharma
               </h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed">
                 Thank you for visiting my portfolio! I'm passionate about creating innovative web solutions 
-                and always excited to connect with fellow developers, potential collaborators, and anyone 
-                interested in technology. Feel free to reach out - let's build something amazing together! 🚀
+                and always excited to connect with fellow developers. Let's build something amazing together!
               </p>
-              <div className="flex items-center text-gray-400 text-sm">
-                <FiHeart className="w-4 h-4 mr-2 text-red-400" />
+              <div className="flex items-center text-gray-500 text-sm">
+                <FiHeart className="w-4 h-4 mr-2 text-accent-pink" />
                 <span>Made with passion and dedication</span>
               </div>
             </motion.div>
@@ -89,13 +88,13 @@ const Footer = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold text-primary-400 mb-4">Quick Links</h4>
+              <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 {navLinks.map((link, index) => (
                   <li key={index}>
                     <a
                       href={link.href}
-                      className="text-gray-300 hover:text-primary-400 transition-colors duration-200 text-sm"
+                      className="text-gray-400 hover:text-accent-cyan transition-colors duration-200 text-sm"
                     >
                       {link.name}
                     </a>
@@ -113,28 +112,28 @@ const Footer = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold text-primary-400 mb-4">Get In Touch</h4>
+              <h4 className="text-lg font-semibold text-white mb-4">Get In Touch</h4>
               <div className="space-y-3">
-                <div className="flex items-center text-gray-300 text-sm">
-                  <FiMail className="w-4 h-4 mr-3 text-primary-400" />
+                <div className="flex items-center text-gray-400 text-sm">
+                  <FiMail className="w-4 h-4 mr-3 text-accent-cyan" />
                   <a 
                     href="mailto:tsharmak10@gmail.com"
-                    className="hover:text-primary-400 transition-colors duration-200"
+                    className="hover:text-accent-cyan transition-colors duration-200"
                   >
                     tsharmak10@gmail.com
                   </a>
                 </div>
-                <div className="flex items-center text-gray-300 text-sm">
-                  <FiPhone className="w-4 h-4 mr-3 text-primary-400" />
+                <div className="flex items-center text-gray-400 text-sm">
+                  <FiPhone className="w-4 h-4 mr-3 text-accent-cyan" />
                   <a 
                     href="tel:+919711669908"
-                    className="hover:text-primary-400 transition-colors duration-200"
+                    className="hover:text-accent-cyan transition-colors duration-200"
                   >
                     +91-9711669908
                   </a>
                 </div>
-                <div className="flex items-center text-gray-300 text-sm">
-                  <FiMapPin className="w-4 h-4 mr-3 text-primary-400" />
+                <div className="flex items-center text-gray-400 text-sm">
+                  <FiMapPin className="w-4 h-4 mr-3 text-accent-cyan" />
                   <span>New Delhi, India</span>
                 </div>
               </div>
@@ -143,7 +142,7 @@ const Footer = () => {
         </div>
 
         {/* Social Links & Bottom Section */}
-        <div className="border-t border-gray-700 pt-8">
+        <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             
             {/* Social Links */}
@@ -165,7 +164,7 @@ const Footer = () => {
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.1, y: -2 }}
-                  className={`p-3 bg-gray-800 dark:bg-secondary-800 rounded-full text-gray-300 transition-all duration-200 ${social.color}`}
+                  className="p-3 glass rounded-full text-gray-400 hover:text-white hover:glow-blue transition-all duration-200"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -179,7 +178,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-gray-400 text-sm text-center md:text-right"
+              className="text-gray-500 text-sm text-center md:text-right"
             >
               <p>&copy; {currentYear} Tushar Sharma. All rights reserved.</p>
               <p className="mt-1">Full Stack Developer & MERN Stack Enthusiast</p>
@@ -197,7 +196,7 @@ const Footer = () => {
         viewport={{ once: true }}
         whileHover={{ scale: 1.1, y: -2 }}
         whileTap={{ scale: 0.9 }}
-        className="fixed bottom-8 right-8 p-3 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg transition-all duration-200 z-40"
+        className="fixed bottom-8 right-8 p-3 bg-gradient-to-r from-accent-blue to-accent-purple hover:shadow-lg hover:shadow-accent-blue/25 text-white rounded-full transition-all duration-200 z-40"
         aria-label="Scroll to top"
       >
         <FiArrowUp className="w-5 h-5" />

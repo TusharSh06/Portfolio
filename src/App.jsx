@@ -1,34 +1,54 @@
 import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { FaReact } from 'react-icons/fa'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import ScrollToTop from './components/ScrollToTop'
+import Footer from './components/Footer'
+import { ThemeProvider } from './context/ThemeContext'
 import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Certificates from './components/Certificates'
 import Contact from './components/Contact'
-import ScrollToTop from './components/ScrollToTop'
-import Footer from './components/Footer'
-import { ThemeProvider } from './context/ThemeContext'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 1000)
+    }, 1500)
 
     return () => clearTimeout(timer)
   }, [])
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 dark:from-secondary-900 dark:to-secondary-800">
+      <div className="min-h-screen flex items-center justify-center bg-dark-bg">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600 mx-auto"></div>
-          <p className="mt-4 text-xl font-semibold text-primary-600 dark:text-primary-400">Loading Portfolio...</p>
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+            className="w-20 h-20 mx-auto text-[#61DAFB] flex items-center justify-center filter drop-shadow-[0_0_15px_rgba(97,218,251,0.5)]"
+          >
+            <FaReact className="w-full h-full" />
+          </motion.div>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mt-6 text-xl font-semibold text-accent-cyan font-mono"
+          >
+            Loading Portfolio...
+          </motion.p>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: 200 }}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            className="h-1 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full mt-4 mx-auto"
+          />
         </div>
       </div>
     )
@@ -36,7 +56,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen w-full bg-gradient-to-br from-white to-gray-50 dark:from-secondary-900 dark:to-secondary-800">
+      <div className="min-h-screen w-full bg-dark-bg text-white">
         <Navbar />
         <main className="w-full">
           <Hero />

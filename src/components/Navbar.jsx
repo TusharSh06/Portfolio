@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { useTheme } from '../context/ThemeContext'
-import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi'
+import { FiSun, FiMoon, FiMenu, FiX, FiCode } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const Navbar = () => {
   const { isDark, toggleTheme } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [scrolled, setScrolled] = useState(false)
 
   const navItems = [
     { id: 'home', label: 'Home', href: '#home' },
+    // { id: 'stats', label: 'Stats', href: '#stats' },
     { id: 'about', label: 'About', href: '#about' },
     { id: 'skills', label: 'Skills', href: '#skills' },
     { id: 'projects', label: 'Projects', href: '#projects' },
+    { id: 'experience', label: 'Experience', href: '#experience' },
     { id: 'certificates', label: 'Certificates', href: '#certificates' },
     { id: 'contact', label: 'Contact', href: '#contact' }
   ]
@@ -32,6 +35,8 @@ const Navbar = () => {
           }
         }
       })
+
+      setScrolled(window.scrollY > 50)
     }
 
     // Close mobile menu when scrolling
@@ -70,67 +75,108 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-secondary-900/80 backdrop-blur-md border-b border-gray-200 dark:border-secondary-700">
-      <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo - Always on the left */}
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'glass-strong py-2' 
+          : 'bg-transparent py-4'
+      }`}
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="flex-shrink-0"
           >
-            <a href="#home" className="text-2xl font-bold text-primary-600 dark:text-primary-400">
-              My Portfolio
+            <a href="#home" className="flex items-center gap-2 group">
+              <div className="p-2 rounded-lg bg-gradient-to-r from-accent-blue to-accent-purple">
+                <FiCode className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-xl font-bold font-display tracking-tight gradient-text">
+                My Portfolio
+              </span>
             </a>
           </motion.div>
 
-          {/* Right side - Navigation links, Theme toggle, and mobile menu button */}
-          <div className="flex items-center space-x-6">
-            {/* Desktop Navigation */}
-            <div className="hidden md:block">
-              <div className="flex items-baseline space-x-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item.id}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      scrollToSection(item.href)
-                    }}
-                    className={`px-2 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                      activeSection === item.id
-                        ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                        : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
-                    }`}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-            </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-1">
+            {navItems.map((item, index) => (
+              <motion.a
+                key={item.id}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection(item.href)
+                }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
+                  activeSection === item.id
+                    ? 'text-white'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                {activeSection === item.id && (
+                  <motion.div
+                    layoutId="activeSection"
+                    className="absolute inset-0 bg-gradient-to-r from-accent-blue/20 to-accent-purple/20 rounded-lg"
+                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10">{item.label}</span>
+              </motion.a>
+            ))}
+          </div>
 
+          {/* Right Side Actions */}
+          <div className="flex items-center gap-3">
             {/* Theme Toggle */}
             <motion.button
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.1, rotate: 180 }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-secondary-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-secondary-700 transition-colors duration-200"
+              className="p-2.5 rounded-xl glass text-accent-cyan hover:text-accent-purple transition-colors duration-300"
               aria-label="Toggle theme"
             >
-              {isDark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={isDark ? 'dark' : 'light'}
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {isDark ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
+                </motion.div>
+              </AnimatePresence>
             </motion.button>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-secondary-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-secondary-700 transition-colors duration-200"
-                aria-label="Toggle mobile menu"
-                type="button"
-              >
-                {isOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
-              </button>
-            </div>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2.5 rounded-xl glass text-gray-300 hover:text-white transition-colors duration-300"
+              aria-label="Toggle mobile menu"
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={isOpen ? 'open' : 'closed'}
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {isOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
+                </motion.div>
+              </AnimatePresence>
+            </motion.button>
           </div>
         </div>
       </div>
@@ -142,31 +188,34 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-secondary-900 border-t border-gray-200 dark:border-secondary-700 absolute top-full left-0 right-0 z-50 shadow-lg"
+            className="md:hidden glass-strong mt-2 mx-4 rounded-2xl overflow-hidden"
           >
-            <div className="px-3 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <a
+            <div className="p-4 space-y-2">
+              {navItems.map((item, index) => (
+                <motion.a
                   key={item.id}
                   href={item.href}
                   onClick={(e) => {
                     e.preventDefault()
                     scrollToSection(item.href)
                   }}
-                  className={`block px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 cursor-pointer ${
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-secondary-800'
+                      ? 'text-white bg-gradient-to-r from-accent-blue/20 to-accent-purple/20'
+                      : 'text-gray-400 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {item.label}
-                </a>
+                </motion.a>
               ))}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   )
 }
 

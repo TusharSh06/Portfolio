@@ -4,10 +4,10 @@ import { FiAward, FiTarget, FiHeart, FiCode } from 'react-icons/fi'
 
 const About = () => {
   const achievements = [
-    { icon: FiAward, title: '5+ Projects', description: 'Completed successfully' },
+    { icon: FiAward, title: '10+ Projects', description: 'Completed successfully' },
     { icon: FiTarget, title: '2+ Years', description: 'Of coding experience' },
     { icon: FiHeart, title: '100%', description: 'Client satisfaction' },
-    { icon: FiCode, title: '10+ Skills', description: 'Technologies mastered' }
+    { icon: FiCode, title: '15+ Skills', description: 'Technologies mastered' }
   ]
 
   const timeline = [
@@ -32,8 +32,26 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-20 light-section-secondary dark:bg-secondary-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 bg-dark-bg relative overflow-hidden">
+      {/* Animated Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
+      
+      {/* Gradient Orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-accent-purple/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent-blue/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-accent-cyan/20 rounded-full mix-blend-screen filter blur-[100px] animate-float" style={{ animationDelay: '4s' }} />
+      </div>
+      
+      {/* Animated Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-10 left-1/4 w-2 h-2 bg-accent-purple rounded-full animate-pulse" />
+        <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-accent-blue rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 left-1/2 w-2 h-2 bg-accent-cyan rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-10 w-2 h-2 bg-accent-pink rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,11 +59,12 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            About Me
+          <p className="text-accent-cyan font-mono text-sm tracking-wider mb-4">Get To Know Me</p>
+          <h2 className="text-4xl md:text-5xl font-bold font-display text-white mb-4 tracking-tight">
+            About <span className="gradient-text">Me</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Passionate developer with a love for creating innovative solutions and learning new technologies
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto font-grotesk">
+            Passionate developer crafting innovative solutions and pushing the boundaries of web technology
           </p>
         </motion.div>
 
@@ -59,45 +78,45 @@ const About = () => {
             className="space-y-8"
           >
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Who I Am
+              <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+                <span className="text-accent-blue">#</span> Who I Am
               </h3>
-              <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-lg text-gray-400 leading-relaxed">
                 I'm a passionate Full Stack Developer skilled in building robust web applications using the MERN stack. 
-                I love turning complex problems into simple, beautiful, and intuitive solutions with strong background in front-end/back-end integration, API development, and responsive design.
+                I love turning complex problems into simple, beautiful, and intuitive solutions.
               </p>
-              <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-lg text-gray-400 leading-relaxed">
                 When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
-                or sharing knowledge with the developer community. I'm eager to contribute technical expertise to innovative teams and real-world projects.
+                or sharing knowledge with the developer community.
               </p>
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Career Goals
+              <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+                <span className="text-accent-purple">#</span> Career Goals
               </h3>
               <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary-600 rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-gray-600 dark:text-gray-400">
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-2 h-2 bg-accent-blue rounded-full mt-3 flex-shrink-0 group-hover:scale-150 transition-transform" />
+                  <p className="text-gray-400 group-hover:text-white transition-colors">
                     Lead development teams and mentor junior developers
                   </p>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary-600 rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-gray-600 dark:text-gray-400">
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-2 h-2 bg-accent-purple rounded-full mt-3 flex-shrink-0 group-hover:scale-150 transition-transform" />
+                  <p className="text-gray-400 group-hover:text-white transition-colors">
                     Contribute to open-source projects and give back to the community
                   </p>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary-600 rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-gray-600 dark:text-gray-400">
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-2 h-2 bg-accent-cyan rounded-full mt-3 flex-shrink-0 group-hover:scale-150 transition-transform" />
+                  <p className="text-gray-400 group-hover:text-white transition-colors">
                     Master advanced technologies like AI/ML and blockchain
                   </p>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary-600 rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-gray-600 dark:text-gray-400">
+                <div className="flex items-start space-x-3 group">
+                  <div className="w-2 h-2 bg-accent-pink rounded-full mt-3 flex-shrink-0 group-hover:scale-150 transition-transform" />
+                  <p className="text-gray-400 group-hover:text-white transition-colors">
                     Build products that make a positive impact on people's lives
                   </p>
                 </div>
@@ -113,8 +132,8 @@ const About = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center lg:text-left">
-              Experience Timeline
+            <h3 className="text-2xl font-bold font-display text-white text-center lg:text-left mb-8">
+              <span className="gradient-text">Experience</span> Timeline
             </h3>
             <div className="space-y-6">
               {timeline.map((item, index) => (
@@ -128,26 +147,26 @@ const About = () => {
                 >
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold">
+                      <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm gradient-border">
                         {item.year.slice(-2)}
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="bg-gray-50 dark:bg-secondary-800 rounded-lg p-4 hover:shadow-lg transition-shadow duration-200">
-                        <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      <div className="modern-card p-5 group hover:scale-[1.02] transition-all duration-300">
+                        <h4 className="text-lg font-semibold text-white mb-1">
                           {item.title}
                         </h4>
-                        <p className="text-primary-600 dark:text-primary-400 font-medium">
+                        <p className="text-accent-cyan font-mono text-sm mb-2">
                           {item.company}
                         </p>
-                        <p className="text-gray-600 dark:text-gray-400 mt-2">
+                        <p className="text-gray-400 text-sm">
                           {item.description}
                         </p>
                       </div>
                     </div>
                   </div>
                   {index < timeline.length - 1 && (
-                    <div className="absolute left-6 top-12 w-0.5 h-8 bg-gray-300 dark:bg-gray-600"></div>
+                    <div className="absolute left-6 top-12 w-0.5 h-8 bg-gradient-to-b from-accent-blue to-accent-purple" />
                   )}
                 </motion.div>
               ))}
@@ -163,8 +182,8 @@ const About = () => {
           viewport={{ once: true }}
           className="mt-20"
         >
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-12">
-            Key Achievements
+          <h3 className="text-2xl font-bold font-display text-white text-center mb-12">
+            Key <span className="gradient-text">Achievements</span>
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {achievements.map((achievement, index) => (
@@ -176,13 +195,13 @@ const About = () => {
                 viewport={{ once: true }}
                 className="text-center group"
               >
-                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-primary-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform duration-200">
-                  <achievement.icon className="w-10 h-10" />
+                <div className="w-20 h-20 mx-auto mb-4 rounded-2xl flex items-center justify-center text-white text-2xl modern-card group-hover:scale-110 transition-all duration-300 group-hover:glow-blue">
+                  <achievement.icon className="w-10 h-10 text-accent-cyan" />
                 </div>
-                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                <h4 className="text-xl font-bold text-white mb-2">
                   {achievement.title}
                 </h4>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-400 text-sm">
                   {achievement.description}
                 </p>
               </motion.div>
