@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useTheme } from '../context/ThemeContext'
-import { FiSun, FiMoon, FiMenu, FiX, FiCode, FiArrowLeft, FiBriefcase } from 'react-icons/fi'
+import { FiMenu, FiX, FiCode, FiArrowLeft, FiBriefcase } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const Navbar = () => {
-  const { isDark, toggleTheme } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [scrolled, setScrolled] = useState(false)
@@ -193,33 +191,10 @@ const Navbar = () => {
               </motion.button>
             )}
 
-            {/* Theme Toggle */}
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 180 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={toggleTheme}
-              className="p-2.5 rounded-xl glass text-accent-cyan hover:text-accent-purple transition-colors duration-300"
-              aria-label="Toggle theme"
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={isDark ? 'dark' : 'light'}
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {isDark ? <FiSun className="w-4 h-4 sm:w-5 sm:h-5" /> : <FiMoon className="w-4 h-4 sm:w-5 sm:h-5" />}
-                </motion.div>
-              </AnimatePresence>
-            </motion.button>
-
             {/* Mobile menu button */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+            <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2.5 rounded-xl glass text-gray-300 hover:text-white transition-colors duration-300"
+              className="md:hidden p-2.5 rounded-xl glass text-gray-300 hover:text-white transition-colors duration-200"
               aria-label="Toggle mobile menu"
             >
               <AnimatePresence mode="wait">
@@ -228,12 +203,12 @@ const Navbar = () => {
                   initial={{ rotate: -90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
                   exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.15 }}
                 >
                   {isOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
                 </motion.div>
               </AnimatePresence>
-            </motion.button>
+            </button>
           </div>
         </div>
       </div>
