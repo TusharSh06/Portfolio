@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FaReact } from 'react-icons/fa'
 import Navbar from './components/Navbar'
@@ -12,6 +13,22 @@ import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Certificates from './components/Certificates'
 import Contact from './components/Contact'
+import FreelanceServices from './components/FreelanceServices'
+import RouteScrollHandler from './components/RouteScrollHandler'
+
+function HomePage() {
+  return (
+    <main className="w-full">
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Experience />
+      <Certificates />
+      <Contact />
+    </main>
+  )
+}
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -56,20 +73,19 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen w-full bg-dark-bg text-white">
-        <Navbar />
-        <main className="w-full">
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Certificates />
-          <Contact />
-        </main>
-        <Footer />
-        <ScrollToTop />
-      </div>
+      <BrowserRouter>
+        <RouteScrollHandler />
+        <div className="min-h-screen w-full bg-dark-bg text-white">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/services" element={<FreelanceServices />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+          <Footer />
+          <ScrollToTop />
+        </div>
+      </BrowserRouter>
     </ThemeProvider>
   )
 }
