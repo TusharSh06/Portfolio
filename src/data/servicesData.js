@@ -1,67 +1,63 @@
 export const clientProjects = [
   {
-    id: 'expresskart',
-    title: 'ExpressKart',
-    tagline: 'Multi-Portal Local E-Commerce Ecosystem',
-    category: 'E-commerce Platform',
-    screenshot: '/images/expresskart.png',
+    id: 'c2homes',
+    title: 'C2 Homes',
+    domain: 'c2homes.in',
+    tagline: 'Modern Real Estate & Architectural Living Spaces',
+    category: 'Real Estate & Construction',
+    screenshot: '/images/portfolio-1.png',
     images: [
-      '/images/expresskart.png',
-      '/images/expresskart-2.png',
-      '/images/expresskart-3.png',
-      '/images/expresskart-4.png',
-      '/images/expresskart-5.png',
-      '/images/expresskart-6.png'
+      '/images/portfolio-1.png',
+      '/images/portfolio-2.png',
+      '/images/portfolio-3.png',
+      '/images/portfolio-4.png'
     ],
-    overview: 'A full-stack multi-portal e-commerce web platform engineered to bring local vendors and brick-and-mortar kirana stores online with zero tech friction.',
-    clientRequirements: 'Local shop owners needed a modern, cost-effective digital storefront with seamless inventory tracking, multi-vendor isolation, and effortless order checkout without expensive commercial platform commissions.',
-    myRole: 'Lead Full-Stack Web Developer — architected the database schema, designed dedicated customer, vendor, and administrator dashboards, integrated JWT authentication, and built real-time status management.',
-    technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'REST API', 'Tailwind CSS'],
-    liveUrl: 'https://expresskart.vercel.app/',
-    githubUrl: 'https://github.com/TusharSh06/ExpressKart'
+    overview: 'A bespoke real estate and construction platform showcasing prime residential properties, floor plans, and interactive property inquiries.',
+    clientRequirements: 'The client needed a high-trust digital presence with rich imagery showcases, interactive property catalogs, clear location highlights, and seamless lead generation for buyer inquiries.',
+    myRole: 'Full-Stack Web Developer — engineered responsive property catalogs, fast mobile-optimized galleries, structured lead capture forms, and clean modern aesthetics.',
+    technologies: ['React.js', 'Tailwind CSS', 'Node.js', 'REST API', 'Responsive UI', 'SEO Optimization'],
+    liveUrl: 'https://c2homes.in',
+    githubUrl: null
   },
   {
-    id: 'triplane',
-    title: 'Triplane',
-    tagline: 'Tour & Travel Booking Management Platform',
-    category: 'Travel & Booking Web App',
-    screenshot: '/images/triplane.png',
+    id: 'wissencreations',
+    title: 'Wissen Creations',
+    domain: 'wissencreations.com',
+    tagline: 'Creative Design Studio & Digital Agency Showcase',
+    category: 'Creative Agency & Design',
+    screenshot: '/images/portfolio.png',
     images: [
-      '/images/triplane.png',
-      '/images/triplane-1.png',
-      '/images/triplane-2.png',
-      '/images/triplane-3.png',
-      '/images/triplane-4.png',
-      '/images/triplane-5.png'
+      '/images/portfolio.png',
+      '/images/portfolio-1.png',
+      '/images/portfolio-2.png'
     ],
-    overview: 'A feature-complete travel agency web application featuring curated vacation packages, custom inquiries, automated itinerary viewing, and an administrative booking pipeline.',
-    clientRequirements: 'The travel business required an intuitive online presence replacing manual booking calls with digital package exploration, media gallery showcases, role-based agent management, and booking records.',
-    myRole: 'Full-Stack Developer — built end-to-end booking workflows, Cloudinary CDN image integration for fast package photo delivery, and responsive mobile-first itinerary displays.',
-    technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Cloudinary', 'Multer', 'Tailwind CSS'],
-    liveUrl: 'https://triplane-rho.vercel.app/',
-    githubUrl: 'https://github.com/TusharSh06/Triplane'
+    overview: 'A high-impact brand showcase and digital agency website built to exhibit creative campaigns, visual identity projects, and client services.',
+    clientRequirements: 'The studio required an artistic, dynamic web presentation reflecting their creative caliber, fast page load speeds, interactive project portfolios, and clear client conversion points.',
+    myRole: 'Frontend & UI Specialist — designed dynamic interactive portfolio layouts, smooth micro-interactions, responsive typography, and optimized asset delivery.',
+    technologies: ['React.js', 'Tailwind CSS', 'Vite', 'Modern UI/UX', 'SEO & Performance'],
+    liveUrl: 'https://wissencreations.com',
+    githubUrl: null
   },
   {
-    id: 'techgather',
-    title: 'TechGather',
-    tagline: 'Interactive Community Event Management System',
-    category: 'Event Platform & Community Portal',
-    screenshot: '/images/techgather.png',
+    id: 'pbelectrical',
+    title: 'PB Electrical Services',
+    domain: 'pbelectricalservices.org',
+    tagline: 'Commercial & Residential Electrical Engineering Services',
+    category: 'Industrial & Electrical Services',
+    screenshot: '/images/portfolio-4.png',
     images: [
-      '/images/techgather.png',
-      '/images/techgather-1.png',
-      '/images/techgather-2.png',
-      '/images/techgather-3.png',
-      '/images/techgather-4.png'
+      '/images/portfolio-4.png',
+      '/images/portfolio-3.png',
+      '/images/portfolio-2.png'
     ],
-    overview: 'A modern event scheduling and discovery platform allowing communities to organize meetups, view synchronized interactive calendars, and manage attendee registrations.',
-    clientRequirements: 'Event organizers required a clean platform with interactive calendar schedules, quick user sign-ups, dual dark/light branding, and reliable attendee tracking without clunky external forms.',
-    myRole: 'Full-Stack Developer — implemented FullCalendar.js scheduling integration, role authentication, responsive theme toggle, and dynamic event registration APIs.',
-    technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'FullCalendar.js', 'REST APIs'],
-    liveUrl: 'https://techgather.vercel.app/',
-    githubUrl: 'https://github.com/TusharSh06/Techgather'
+    overview: 'A professional service booking and capability showcase portal for certified industrial and residential electrical engineering solutions.',
+    clientRequirements: 'The business needed an authoritative digital footprint with clear breakdown of electrical services, safety compliance badges, immediate emergency contact channels, and quote request workflows.',
+    myRole: 'Web Developer — created high-converting service breakdown pages, direct WhatsApp and phone call triggers, quote estimation intake forms, and local SEO configuration.',
+    technologies: ['React.js', 'Tailwind CSS', 'Node.js', 'Form Engine', 'Local SEO'],
+    liveUrl: 'https://pbelectricalservices.org',
+    githubUrl: null
   }
-];
+]
 
 export const freelanceServices = [
   {

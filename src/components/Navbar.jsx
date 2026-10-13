@@ -117,26 +117,26 @@ const Navbar = () => {
                   window.scrollTo({ top: 0, behavior: 'smooth' })
                 }
               }}
-              className="flex items-center gap-2 group"
+              className="flex items-center gap-2.5 group"
             >
-              <div className={`p-2 rounded-lg ${
-                isServicesPage
-                  ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
-                  : 'bg-gradient-to-r from-accent-blue to-accent-purple'
-              }`}>
-                {isServicesPage ? (
-                  <FiBriefcase className="w-5 h-5 text-slate-950 font-bold" />
-                ) : (
-                  <FiCode className="w-5 h-5 text-white" />
-                )}
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden p-0.5 bg-gradient-to-br from-white/20 to-white/5 border border-white/10 group-hover:border-emerald-400/50 transition-colors shadow-md flex items-center justify-center">
+                <img 
+                  src="/Logo.png" 
+                  alt="Tushar Sharma Logo" 
+                  className="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-200" 
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-lg sm:text-xl font-bold font-display tracking-tight text-white group-hover:text-emerald-400 transition-colors">
                   Tushar Sharma
                 </span>
-                {isServicesPage && (
+                {isServicesPage ? (
                   <span className="text-[10px] font-mono text-emerald-400 -mt-1 font-semibold tracking-wider uppercase">
                     Freelance Studio
+                  </span>
+                ) : (
+                  <span className="text-[10px] font-mono text-gray-400 -mt-1 font-medium tracking-wider">
+                    Full-Stack Software Dev
                   </span>
                 )}
               </div>
